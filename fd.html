@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FD Rate Calculator</title>
+</head>
+<style>
+    body{
+        background-color: khaki;
+    }
+    .container{
+        background-color:mediumaquamarine;
+        height: 30rem;
+        width: 40rem;
+        justify-content: center;
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        margin-left: 350px;
+        margin-top: 80px;
+    }
+    h1{
+        color: salmon;
+        margin-bottom: 80px;
+
+        
+    }
+    #input{
+        height: 45px;
+        width: 300px;
+        border-radius: 5px;
+    }
+    #btn{
+        width: 100px;
+        height: 45px;
+        font-size: 18px;
+        border-radius: 10px;
+        background-color: aquamarine;
+    }
+    #result{
+        color: rebeccapurple;
+        font-size:bold;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight:bold;
+
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>FD Rate Calculator</h1>
+        <input type="text" id="input" placeholder="tenure months"><br> <br>
+        <button id="btn" onclick ="calculate()">Calculate</button> <br>
+        <div id="result"></div>
+    </div>
+    <script>
+        function calculate() {
+            const months = Number(document.getElementById("input").value);
+            let rate = 0
+            if(months<3)
+               rate = 5.8
+            else if(months>=3 && months<=6)
+               rate = 6.5
+            else if(months>=7 && months<=9)
+                rate=6.8
+            else
+               rate = 7
+            let result=document.querySelector("#result") 
+            result.innerHTML="Your Interest Rate is " + rate + "%";
+        }
+    </script>
+</body>
+</html>

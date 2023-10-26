@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RD Calculator</title>
+</head>
+<style>
+    .container{
+         background-color: khaki;
+         box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.713);
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         width:40rem;
+         height: 35rem;
+         align-items: center;
+         box-sizing: border-box;
+         border-radius: 10px;
+         margin-left: 400px;
+         margin-top: 50px;
+    }
+    #principal, #interest,#time{
+        height: 40px;
+        width: 500px;
+        border-radius: 5px;
+        font-size: bold;
+    }
+    #a{
+        margin-right: 330px;
+    }
+    #b{
+        margin-right: 350px;
+    }
+    #c{
+        margin-right: 390px;
+    }
+    #btn{
+        background-color: maroon;
+        color: violet;
+        font-size: 20px;
+        padding: 15px;
+        border-radius: 10px;
+        margin-right: 390px;
+    }
+    #result{
+        color: forestgreen;
+        font-size:bold;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight:1500px;
+    }
+    
+</style>
+<body>
+    <div class="container">
+        <h1 class="h1">RD Calculator</h1>
+        <h3 id="a">Principal Amount (&#8377):</h3>
+        <input type="text" id="principal">
+
+        <h3 id="b">Interest Rate (%) :</h3>
+        <input type="text" id="interest">
+
+        <h3 id="c">Time(months):</h3>
+        <input type="text" id="time"> <br> <br>
+        <button id="btn" onclick="Convert()">Calculate</button>
+        <div id="result"></div>
+    </div>
+    <script>
+         function Convert() {
+            var principal = parseInt(document.getElementById("principal").value);
+            var interest = parseInt(document.getElementById("interest").value);
+            var time = parseInt(document.getElementById("time").value);
+            var Convert = principal*interest/100*time; 
+            document.getElementById("result").innerHTML = "Total Amount After " + time + " Months:  ₹" +   Convert. toFixed(2);
+         }  
+    </script>
+</body>
+</html> 

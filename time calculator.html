@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Calculationt</title>
+    <style>
+        .container{
+            text-align: center;
+            padding: 20px;
+        }
+        h1{
+            color:mediumseagreen;
+        }
+        label{
+            display: block;
+            font-weight: bold;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        #start{
+            width: 300px;
+            background-color: khaki;
+            padding: 5px;
+        }
+        #end{
+            width: 300px;
+            background-color: mediumpurple;
+            padding: 5px;
+        }
+        #btn{
+            margin-left: 30;
+            padding: 10px;
+            width: 150px;
+            background-color:hotpink;
+            color: firebrick;
+            border-radius: 5px;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #result{
+            margin-top: 20px;
+            color:mediumorchid;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bold;
+        }
+        #time-difference{
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+ <div class="container">
+    <h1>Time Calculator</h1>
+    <label for="Start Time">Start Time :</label> <br> <br>
+    <input type="time" id="start">
+    <br> <br>
+    <label for="End Time">End Time:</label> <br><br>
+    <input type="time" id="end">
+    <br> <br>
+    <button id="btn" onclick="CalculateTimeDiff()">Calculate</button>
+    <br> <br>
+    <div id="result">
+        <p>Time Difference: <span id="time-difference"></span></p> 
+     </div>
+ </div> 
+ <script>
+    document.addEventListener('DOMContentLoaded',function() {
+        const btn = document.getElementById("btn");
+        const startInput = document.getElementById("start");
+        const endInput = document.getElementById("end");
+        const timeDifferenceDisplay = document.getElementById("time-difference");
+        btn.addEventListener('click',CalculateTimeDiff);
+        function CalculateTimeDiff() {
+            const start = new Date (`1970-01-01T${startInput.value}`);
+            const end = new Date (`1970-01-01T${endInput.value}`);
+
+            const timeDiff = end - start;
+            if (isNaN(timeDiff)) {
+                timeDifferenceDisplay.textContent = "Invalid time format";
+            } else {
+                const hours = Math.floor(timeDiff / 3600000);
+                const minutes = Math.floor((timeDiff % 3600000) / 60000);
+                timeDifferenceDisplay.textContent = `${hours} hours and ${minutes} minutes`;
+                
+            }
+        }
+    });
+ </script>
+</body>
+</html>
