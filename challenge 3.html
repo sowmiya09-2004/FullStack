@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const dolphins1= prompt("enter the  dolphins 1st score :")
+         const dolphins2=prompt("enter the dolphins 2nd score:")
+   const dolphins3=prompt("enter the dolphins 3rd score :")
+   const koalas1=prompt("enter the koalas 1st score :")
+    const koalas2=prompt("enter the koalas 2nd score :")
+    const koalas3=prompt("enter the koalas 3rd score :")
+    const dsaverage=(dolphins1+dolphins2+dolphins3)/3
+    const ksaverage=(koalas1+koalas2+koalas3)/3
+    
+    if(dsaverage>ksaverage && dsaverage>=100){
+      console.log("Dolphin wins")
+    }
+    
+    else if(ksaverage>dsaverage && ksaverage>=100){
+       console.log("Koalas wins")
+    }
+    else if(ksaverage===dsaverage && ksaverage>=100 && dsaverage>=100){
+       console.log(" match is draw")
+    }
+    else{
+      console.log("no winne")
+    }
+    </script>
+</body>

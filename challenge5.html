@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+           const calcaverage=(score1,score2,score3)=>(score1+score2+score3)/3
+       const dolphinsscore1= parseFloat(prompt("Enter the dolphins score 1 :"))
+       const dolphinsscore2= parseFloat(prompt("Enter the dolphins score 2 :"))
+       const dolphinsscore3= parseFloat(prompt("Enter the dolphins score 3 :"))
+       const avgdolphins=calcaverage(dolphinsscore1,dolphinsscore2,dolphinsscore3)
+       const koalasscore1= parseFloat(prompt("Enter the koalas score 1 :"))
+       const koalasscore2= parseFloat(prompt("Enter the koalas score 2 :"))
+       const koalasscore3= parseFloat(prompt("Enter the koalas score 3 :"))
+       const avgkoalas=calcaverage(koalasscore1,koalasscore2,koalasscore3)
+       const checkwinner=(avgdolphins,avgkoalas)=>{
+          if(avgdolphins>=2*avgkoalas){
+            console.log(`dolphin wins ${avgdolphins} vs ${avgkoalas}`)
+          }
+          else if(avgkoalas>=2*avgdolphins) {
+            console.log(`koalas wins ${avgkoalas} vs  ${avgdolphins} `)}
+          
+         else {
+            console.log("no winner")
+          }
+       }
+       checkwinner(avgdolphins,avgkoalas)
+    </script>
+</body>
+</html>

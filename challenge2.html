@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>challenge 2</title>
+</head>
+<body>
+
+    <script>   
+     const markmass=prompt(" enter the mark's weight in kilogram:")
+    const markheight=prompt(" enter the mark's height in meter:")
+        const johnmass=prompt(" enter the johns weight in kilogram:")
+        const johnheight=prompt(" enter the johns height in meter:")
+        const markbmi=markmass/(markheight*markheight)
+        const johnbmi=johnmass/(johnheight*johnheight)
+        if(markbmi>johnbmi){
+            console.log(`Mark BMI ${markbmi.toFixed(2)} is greater than  john bmi ${johnbmi.toFixed(2)}`)
+        }
+        else {
+            console.log(`Mark BMI ${markbmi.toFixed(2)} is lesser than  john bmi ${johnbmi.toFixed(2)}`)
+        }
+    </script>
+</body>
+</html>
