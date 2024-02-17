@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Converter</title>
+  </head>
+  <body>
+    <script>
+      const textarea = document.createElement("textarea");
+      const button = document.createElement("button");
+      button.textContent = "Convert";
+      document.body.append(textarea);
+      document.body.append(button);
+      function convertToCamelCase(str) {
+        const words = str.split("_");
+        return words.reduce((acc, word, i) => {
+          const capitalizedWord =
+            i > 0 ? word.charAt(0).toUpperCase() + word.slice(1) : word;
+          return acc + capitalizedWord;
+        }, "");
+      }
+      button.addEventListener("click", () => {
+        const inputLines = textarea.value.split("\n");
+        inputLines.forEach((line, index) => {
+          const camelCase = convertToCamelCase(line);
+          console.log(camelCase, "✅".repeat(index + 1));
+        });
+      });
+    </script>
+  </body>
+</html>

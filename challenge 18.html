@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculate Average Human Age</title>
+<script>
+function calcAverageHumanAge(ages) {
+  let totalHumanAge = 0;
+  let count = 0;
+ 
+  ages.forEach(age => {
+    let humanAge;
+    if (age <= 2) {
+      humanAge = 2 * age;
+    } else {
+      humanAge = 16 + age * 4;
+    }
+   
+    if (humanAge >= 18) {
+      totalHumanAge += humanAge;
+      count++;
+    }
+  });
+ 
+  if (count === 0) {
+    return 0;
+  } else {
+    return totalHumanAge / count;
+  }
+}
+
+const data1 = [5, 2, 4, 1, 15, 8, 3];
+const data2 = [16, 6, 10, 5, 6, 1, 4];
+
+const avgAge1 = calcAverageHumanAge(data1);
+const avgAge2 = calcAverageHumanAge(data2);
+
+console.log("Average human age for data 1:", avgAge1);
+console.log("Average human age for data 2:", avgAge2);
+</script>
+</head>
+<body>
+</body>
+</html>

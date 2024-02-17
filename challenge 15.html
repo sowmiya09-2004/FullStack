@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poll App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:hotpink;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: navajowhite;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: darkgray;
+            color: violet;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: skyblue;
+        }
+
+        button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="container">
+    <h1>Poll App</h1>
+    <button class="answer-poll">Poll</button>
+</div>
+
+<script>
+    
+    const poll = {
+        question: 'What is your favorite programming language?',
+        options: ['R', 'C', 'JAVA', 'RAJINI ++'],
+        answers: new Array(4).fill(0),
+
+        registerNewAnswer() {
+            const answer = Number(prompt(
+                `${this.question}\n${this.options.map((option, index) => `${index}: ${option}`).join('\n')}\n(Write option number)`
+            ));
+
+            if (Number.isInteger(answer) && answer >= 0 && answer < this.options.length) {
+                this.answers[answer]++;
+                this.displayResults();
+            } else {
+                alert('Invalid input! Please enter a valid option number.');
+            }
+        },
+
+        displayResults(type = 'array') {
+            if (type === 'array') {
+                console.log(this.answers);
+            } else if (type === 'string') {
+                console.log(`Poll results are ${this.answers.join(', ')}`);
+            }
+        },
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelector('.answer-poll').addEventListener('click', poll.registerNewAnswer.bind(poll));
+    });
+
+
+    const testData1 = [5, 2, 3];
+    const testData2 = [1, 5, 3, 9, 6, 1];
+
+    console.log('Test Data 1:');
+    poll.displayResults.call({ answers: testData1 }, 'array');
+    poll.displayResults.call({ answers: testData1 }, 'string');
+
+    console.log('Test Data 2:');
+    poll.displayResults.call({ answers: testData2 }, 'array');
+    poll.displayResults.call({ answers: testData2 }, 'string');
+</script>
+
+</body>
+</html>
